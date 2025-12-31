@@ -108,11 +108,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y apache2
 
-WORKDIR /var/www/html        # inside container
+WORKDIR /var/www/html       
 
-ADD website.tar.gz /var/www/html      #extracting there
+ADD website.tar.gz /var/www/html     
 
-EXPOSE 80                            # container port which later get mount with host port
+EXPOSE 80                           
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
@@ -136,7 +136,7 @@ STEP 9️⃣ Build Docker image
 
 docker build -t my-website .
 or
-docker build -t iamrupeshsingh/my-website:v1 .
+docker build -t iamrupeshsingh/my-website:v1 .     (recommended)
 
 . -> Docker file in current path
 
@@ -147,7 +147,7 @@ STEP 🔟 Run container
 
 --->docker run -d -p 8000:80 my-website
 or
----?$ docker run -d --name my-container -p 8000:80 iamrupeshsingh/myimage:v1
+---?$ docker run -d --name my-container -p 8000:80 iamrupeshsingh/myimage:v1    (recommended)
 
 Meaning:
 	•	Host port 8000
